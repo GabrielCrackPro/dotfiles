@@ -1,26 +1,22 @@
 set termguicolors
 set nocompatible
+set nowrap
+set rnu
+set numberwidth=1
+set backspace=2
+set nobackup
+set ignorecase
+set number
+set wildmenu
+set background=dark
+set autoindent
+set encoding=utf-8
 
-" Enable type file detection. Vim will be able to try to detect the type of file in use.
 filetype on
-
-" Enable plugins and load plugin for the detected file type.
 filetype plugin on
-
-" Load an indent file for the detected file type.
 filetype indent on
-
-" Turn syntax highlighting on.
 syntax on
 
-" Add numbers to each line on the left-hand side.
-set number
-
-" Enable auto completion menu after pressing TAB.
-set wildmenu
-" Set dark background
- set background=dark
-" Set plugins
  call plug#begin()
 Plug 'preservim/NERDTree'
 Plug 'wakatime/vim-wakatime'
@@ -28,10 +24,11 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ParamagicDev/vim-medic_chalk'
+Plug 'embark-theme/vim', { 'as': 'embark' }
+Plug 'pangloss/vim-javascript'
+Plug 'chiel92/vim-autoformat'
 call plug#end()
-" Set colorscheme
-colorscheme medic_chalk
-" Set Airline theme. List:https://github.com/vim-airline/vim-airline/wiki/Screenshots
-let g:airline_theme='bubblegum'
-set autoindent
-set encoding=utf-8
+
+colorscheme embark
+" Airline Colors https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme='raven'

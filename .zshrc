@@ -112,12 +112,13 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias zshconfig="vim ~/.zshrc"
 alias dev="cd ~/dev" #Go to developmet directory
-alias pass-gen="python3 /Users/gabrielvr/DEV/Python-Scripts/Password-generator/main.py" #Start password generator
+alias pass-gen="python3 /Users/gabrielvr/dev/Python-Scripts/Password-generator/main.py" #Start password generator
+alias express="bash /Users/gabrielvr/dev/express-app-generator/create.sh" #Generate express app
 
 # Spotify aliases
 
 alias sp="spotify" # Spotify main comand
-alias sph="bash /Users/gabrielvr/DEV/bash-scripts/spotifyhelp.sh" # Show spotify comandline help
+alias sph="bash /Users/gabrielvr/dev/bash-scripts/spotifyhelp.sh" # Show spotify comandline help
 alias spp="spotify play" # Play current song or a given
 alias spl="spotify play list" # Play a given playlist
 alias spa="spotify play artist" # Play a given artist
