@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,12 +7,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-#### FIG ENV VARIABLES ####
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+# If you come from bash you might have to change your $PATH. export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/gabrielvr/.oh-my-zsh"
 
@@ -18,7 +15,7 @@ export ZSH="/Users/gabrielvr/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powelevel10k"
+# ZSH_THEME="powerlevel01k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -34,7 +31,7 @@ ZSH_THEME="powelevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -64,6 +61,8 @@ ZSH_THEME="powelevel10k"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+ZSH_DISABLE_COMPFIX=true
+
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -81,8 +80,13 @@ ZSH_THEME="powelevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git 
-    osx
+    colors
+    zsh-peco-history
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    macos
+    autojump
+    sudo
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -92,7 +96,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=es_ES.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -109,57 +113,137 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-# Aliases
-alias zshconfig="vim ~/.zshrc"
-alias dev="cd ~/dev" #Go to developmet directory
-alias pass-gen="python3 /Users/gabrielvr/dev/Python-Scripts/Password-generator/main.py" #Start password generator
-alias express="bash /Users/gabrielvr/dev/express-app-generator/create.sh" #Generate express app
+# Prompt colors
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+
+# Custom Aliases
+
+# Config files
+alias zshconfig="nvim ~/.zshrc"
+alias tmuxconfig="nvim ~/.config/tmux/tmux.conf"
+
+alias dev="cd ~/dev"
+alias express="express-cli-generator"
+alias rmds="sudo python3 ~/dev/dsstore-deleter/main.py /"
+alias cat="bat"
+alias ls="lsd"
+alias update="brew update && brew upgrade && brew cleanup --prune=all"
+alias eman="tldr"
+alias spt="speed-test -v"
+alias clh="history -c"
+alias dmgi="sh ~/dev/dmg-installer/script.sh"
+alias cra="npx create-react-app"
+alias h="howdoi -c"
+alias top="vtop"
+alias vpn="openvpn ~/VPN/vpnbook-pl226-tcp443.ovpn"
+
+# Git aliases
+
+alias gcl="git clone"
+alias ga="git add ."
+alias gs="git status -s"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gl="git log"
 
 # Spotify aliases
 
-alias sp="spotify" # Spotify main comand
-alias sph="bash /Users/gabrielvr/dev/bash-scripts/spotifyhelp.sh" # Show spotify comandline help
-alias spp="spotify play" # Play current song or a given
-alias spl="spotify play list" # Play a given playlist
-alias spa="spotify play artist" # Play a given artist
-alias sppa="spotify pause" # Pause the current song
-alias spn="spotify next" # Play next song
-alias sppr= "spotify prev" #Play previous song
-alias sps="spotify status" #Show current player status
-alias spran="spotify toggle shuffle" #Toggle  shuffle mode
-alias sprep="spotify toggle repeat" #Toggle repeat mode
-alias spv="spotify vol" # Show volume level
-alias spvu="spotify vol up" # Rise volume
-alias spvd="spotify vol down" # Decreases volume
-alias spq="spotify quit" #Quit spotify
+alias sp="spotify"
+alias spp="spotify play"
+alias sppa="spotify pause"
+alias spn="spotify next"
+alias sppr="spotify prev"
+alias spv="spotify volume"
+alias spm="spotify mute"
+alias spr="spotify toggle repeat"
+alias sps="spotify toggle shuffle"
+alias spst="spotify status"
+ 
+# Clear DNS Cache
 
-# Terminal window aliases
+alias cld="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; echo 'DNS Cache cleaned'"
+# Get IP
+alias ip="curl icanhazip.com"
 
-alias split="split_tab"
-alias vsplit="vsplit_tab"
-alias ..="cd .."
+# Custom comands at launch
 
-# Alternative system tools
-alias ls="lsd"
-alias ll='lsd -lh --group-dirs=first'
-alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
-alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
-alias cat='bat'
-alias root="sudo su"
-alias s="sudo"
-alias v="vim"
-# System comands - requires m-cli
-alias lock="m lock"
+clear
 
-# Start Commands
-clear # Clear the screen
+# Display last login info
 
-#### FIG ENV VARIABLES ####
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
-source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+LAST_LOGIN="$(last -tty gabrielvr | head -n 1 | cut -b 38-53)"
+echo -e "$c[green][ 🔒 ] Last login - $c[reset]${LAST_LOGIN}"
+
+# Display private IP
+
+IP="$(ifconfig | grep "inet " | tr " " ":" | cut -d: -f2 | tail -n1)"
+echo -e "$c[green][ 🌐 ] Private IP - $c[reset]${IP}"
+
+# Display weather
+
+WEATHER="$(ansiweather -l Elche,ES -a false -w false -h false -H false -p false -i false | cut -b 13-25)"
+echo -e "$c[green][ ☀️  ] Weather - $c[reset]${WEATHER}"
+
+# Display fortune and cowsay
+
+COWSAY="$(fortune -s | cowsay -f tux)"
+echo -e "$c[green]${COWSAY}$c[reset]"
+echo
+
+source /Users/gabrielvr/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+setopt prompt_subst
+
+# Display time 
+
+RPROMPT="%{$c[green]%}( %D{%H:%M:%S} )%{$c[reset]%}"
+
+
+# Cowsay cowfiles path
+
+export COWFILES="/opt/homebrew/Cellar/cowsay/3.04_1/share/cows"
+
+# Custom functions
+
+# Create dev working directory
+function mkd(){
+mkdir -p $1/public 2>/dev/null
+if [ -d "$1/public" ];then
+	touch $1/public/index.html 2>/dev/null
+	touch $1/public/style.css 2>/dev/null
+	touch $1/public/app.js 2>/dev/null
+	echo "$c[green]Directory $1 created successfully$c[reset]"
+	cd $1
+else
+	echo "$c[red]Error creating directory $1 $c[reset]"
+fi
+}
+function spotify_stats(){
+  echo $(spotify status track)
+}
+# zsh autosuggestions config
+
+AS_COLOR="#015c01"
+AS_WEIGHT="bold"
+AS_DECORATION="underline"
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=${AS_COLOR},${AS_WEIGHT},${AS_DECORATION}"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
