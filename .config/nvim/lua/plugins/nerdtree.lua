@@ -5,7 +5,6 @@ autocmd BufEnter * if tabpagenr('$') == 1
       \ && exists('b:NERDTree')
       \ && b:NERDTree.isTabTree()
       \ | quit | endif
-" vim-nerdtree-syntax-highlight
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
 ]])

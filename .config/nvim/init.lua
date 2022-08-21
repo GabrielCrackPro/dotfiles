@@ -1,4 +1,4 @@
-require('settings')
+require('base')
 require('maps')
 require('plugins.plugins')
 require('plugins.colorschemes')
@@ -8,7 +8,6 @@ require('plugins.colorschemes')
 require('plugins.lualine')
 require('plugins.nerdtree')
 require('plugins.gitsigns')
-require('plugins.nnn')
 require('plugins.whichkey')
 require('plugins.autopairs')
 require('plugins.lspkind')
@@ -20,14 +19,19 @@ require('plugins.lspcolors')
 require('plugins.treesitter')
 require('plugins.dashboard')
 require('plugins.telescope')
+require('plugins.nvimnotify')
+require('plugins.commentary')
+require('plugins.bufferline')
+require('plugins.regexplainer')
+require('plugins.spellsitter')
+require('plugins.cheatsheet')
+require('plugins.iconpicker')
+require('plugins.lspsaga')
 
--- highlight current line
-vim.cmd([[
-set cursorline
-hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
-highlight CursorLine guibg=#0a0a0a ctermbg=234
-]])
+vim.notify = require('notify') -- Change vim default notification
+
+vim.notify('All plugins loaded successfully', 'info', {
+  title = 'Plugins loaded'
+})
 
 -- NOTE: completion config is in the plugins/plugins.lua file

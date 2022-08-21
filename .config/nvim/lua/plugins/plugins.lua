@@ -4,34 +4,46 @@ vim.call('plug#begin', '~/.local/share/nvim/plugged')
 
 -- List of plugins
 
+-- icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
+
 -- Themes
-Plug('getomni/neovim', {
-    ['branch'] = 'main'
-})
+Plug('getomni/neovim', {['branch'] = 'main'})
 Plug 'olimorris/onedarkpro.nvim'
 -- Utilities
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'preservim/NERDTree'
-Plug 'mattn/emmet-vim'
-Plug 'chiel92/vim-autoformat'
-Plug 'pangloss/vim-javascript'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-lua/plenary.nvim'
-Plug('nvim-telescope/telescope.nvim', {
-    ['tag'] = '0.1.0'
-})
-Plug 'luukvbaal/nnn.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'wakatime/vim-wakatime'
-Plug 'glepnir/dashboard-nvim'
-Plug 'folke/which-key.nvim'
-Plug 'windwp/nvim-autopairs'
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'folke/lsp-colors.nvim'
-Plug 'folke/lsp-trouble.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'dinhhuy258/git.nvim'
+Plug 'nvim-lualine/lualine.nvim' -- Statusline
+Plug 'preservim/NERDTree' -- File explorer
+Plug 'mattn/emmet-vim' -- Emmet vscode plugin
+Plug 'chiel92/vim-autoformat' -- Autoformat files
+Plug 'pangloss/vim-javascript' -- Correct colors in js syntax
+Plug 'nvim-treesitter/nvim-treesitter' -- Correct colored syntax
+Plug 'nvim-lua/plenary.nvim' -- Necessary for telescope to work
+Plug('nvim-telescope/telescope.nvim', {['tag'] = '0.1.0'}) -- Fuzzy finder
+Plug 'lewis6991/gitsigns.nvim' -- Git integration
+Plug 'wakatime/vim-wakatime' -- Register work time
+Plug 'glepnir/dashboard-nvim' -- Custom start screen
+Plug 'folke/which-key.nvim' -- Display keybindings
+Plug 'windwp/nvim-autopairs' -- Put [],(),{} automatically
+Plug 'norcalli/nvim-colorizer.lua' -- Preview HEX colors
+Plug 'folke/lsp-colors.nvim' -- Colors for lsp
+Plug 'folke/lsp-trouble.nvim' -- Symbols for lsp
+Plug 'lukas-reineke/indent-blankline.nvim' -- Show indent guides
+Plug 'dinhhuy258/git.nvim' -- Work with git
+Plug 'rcarriga/nvim-notify' -- Custom nvim notifications
+Plug 'romgrk/barbar.nvim' -- Show and navigate throught buffers like tabs
+Plug 'shoukoo/commentary.nvim' -- Comment single lines or blocks just with a keybinding
+Plug ('akinsho/bufferline.nvim', { ['tag'] = 'v2.*' }) -- Custom buffer
+Plug 'MunifTanjim/nui.nvim' -- Necessary for regexplainer to work
+Plug 'bennypowers/nvim-regexplainer' -- Show regexp explanation on hover
+Plug 'lewis6991/spellsitter.nvim' -- Check spell mistakes
+Plug 'nvim-lua/popup.nvim' -- Show telescope and more plugins in a popup window
+Plug 'sudormrfbin/cheatsheet.nvim' -- Cheatsheet for learning keybindings
+Plug 'stevearc/dressing.nvim' -- Necessary for cheatsheet to work
+Plug 'ziontee113/icon-picker.nvim' -- Custom icon picker for telescope
+Plug ('srishanbhattarai/neovim-spotify', { ['do'] = 'bash install.sh' }) -- Control spotify directly from nvim
+Plug 'pangloss/vim-javascript' -- Javascript support
+Plug 'peitalin/vim-jsx-typescript' -- Typescript support
 
 -- Completion plugins
 Plug 'neovim/nvim-lspconfig'
@@ -45,6 +57,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'rafamadriz/friendly-snippets'
+Plug ('glepnir/lspsaga.nvim', { ['branch'] = 'main' })
 
 vim.call('plug#end')
 
@@ -209,7 +222,7 @@ sign({
 })
 sign({
     name = 'DiagnosticSignInfo',
-    text = ''
+    text = 'ℹ'
 })
 
 -- Diagnostics
@@ -221,4 +234,3 @@ vim.diagnostic.config({
     severity_sort = false,
     float = true
 })
-

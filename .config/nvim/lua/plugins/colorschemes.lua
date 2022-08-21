@@ -3,8 +3,17 @@ require('onedarkpro').setup({
     plugins = {
         all = true
     },
+    styles = {
+      comments = "italic",
+      keywords = "bold,italic"
+  },
+  hlgroups = {
+    Comment = { fg = '#D45FDE', bg = '#000' }
+  },
     options = {
-        bold = true
+        bold = true,
+        underline = true,
+        cursorline = true
     }
 })
 
