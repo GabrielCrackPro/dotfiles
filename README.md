@@ -30,3 +30,4 @@ All my configuration files
 - [telescope](https://github.com/nvim-telescope/telescope.nvim) - Extensible fuzzy finder
 - [gitsigns](https://github.com/lewis6991/gitsigns.nvim) - Git decorations for nvim
 - [nnn](https://github.com/luukvbaal/nnn.nvim) - File explorer for vim and nvim
+- **And more**
