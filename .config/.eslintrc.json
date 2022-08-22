@@ -1,0 +1,57 @@
+{
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "script",
+        "ecmaFeatures": {}
+    },
+    "rules": {
+        "camelcase": [
+            "error"
+        ],
+        "default-case": [
+            "error"
+        ],
+        "arrow-parens": [
+            "error"
+        ],
+        "keyword-spacing": [
+            "error"
+        ],
+        "no-empty": [
+            "error"
+        ],
+        "no-duplicate-imports": [
+            "error"
+        ],
+        "no-empty-function": [
+            "error"
+        ],
+        "no-multi-spaces": [
+            "error"
+        ],
+        "no-multiple-empty-lines": [
+            "error"
+        ],
+        "no-plusplus": [
+            "error"
+        ],
+        "no-var": [
+            "error"
+        ],
+        "arrow-spacing": [
+            "error"
+        ],
+        "no-unused-vars": [
+            "error"
+        ],
+        "prefer-destructuring": [
+            "error"
+        ],
+        "prefer-template": [
+            "error"
+        ]
+    },
+    "env": {
+        "es6": true
+    }
+}
