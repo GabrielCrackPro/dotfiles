@@ -1,4 +1,4 @@
-require('spellsitter').setup({
-  enabled = true,
-  debug = false
+require("spellsitter").setup({
+	enabled = true,
+	debug = false,
 })

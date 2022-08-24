@@ -1,37 +1,45 @@
-require('base')
-require('maps')
-require('plugins.plugins')
-require('plugins.colorschemes')
+require("base")
+require("maps")
+require("plugins.plugins")
+require("plugins.colorschemes")
+-- Set up plugins
+require("plugins.lualine")
+require("plugins.nerdtree")
+require("plugins.gitsigns")
+require("plugins.whichkey")
+require("plugins.autopairs")
+require("plugins.lspkind")
+require("plugins.colorizer")
+require("plugins.trouble")
+require("plugins.git")
 
--- Set up plugins 
-
-require('plugins.lualine')
-require('plugins.nerdtree')
-require('plugins.gitsigns')
-require('plugins.whichkey')
-require('plugins.autopairs')
-require('plugins.lspkind')
-require('plugins.colorizer')
-require('plugins.trouble')
-require('plugins.git')
-require('plugins.indentblankline')
-require('plugins.lspcolors')
-require('plugins.treesitter')
-require('plugins.dashboard')
-require('plugins.telescope')
-require('plugins.nvimnotify')
-require('plugins.commentary')
-require('plugins.bufferline')
-require('plugins.regexplainer')
-require('plugins.spellsitter')
-require('plugins.cheatsheet')
-require('plugins.iconpicker')
-require('plugins.lspsaga')
-
-vim.notify = require('notify') -- Change vim default notification
-
-vim.notify('All plugins loaded successfully', 'info', {
-  title = 'Plugins loaded'
-})
-
+require("plugins.indentblankline")
+require("plugins.lspcolors")
+require("plugins.treesitter")
+require("plugins.dashboard")
+require("plugins.telescope")
+require("plugins.nvimnotify")
+require("plugins.commentary")
+require("plugins.bufferline")
+require("plugins.regexplainer")
+require("plugins.spellsitter")
+require("plugins.cheatsheet")
+require("plugins.iconpicker")
+require("plugins.lspsaga")
+require("plugins.nullls")
+require("plugins.transparent")
+require("plugins.barbar")
 -- NOTE: completion config is in the plugins/plugins.lua file
+vim.notify = require("notify") -- Change vim default notification
+vim.notify("Loading plugins...", "warn", {
+    title = "Loading plugins...",
+    timeout = 2000,
+    on_open = function()
+        local timer = vim.loop.new_timer()
+        timer:start(3400, 0, function()
+            vim.notify("Plugins loaded successfully", "info", {
+                title = "Plugins loaded!"
+            })
+        end)
+    end
+})

@@ -1,1 +1,1 @@
-require('commentary').setup()
+require("commentary").setup()

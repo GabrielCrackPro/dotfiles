@@ -1,4 +1,4 @@
-require('regexplainer').setup({
-   mode = 'narrative',
-  auto = true
+require("regexplainer").setup({
+	mode = "narrative",
+	auto = true,
 })
