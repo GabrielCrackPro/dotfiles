@@ -17,11 +17,7 @@ map(
 	":w<CR>:lua vim.notify('File saved successfully', 'info', { title= 'File saved',timeout= 100})<CR>"
 ) -- Save pressing Esc key two times in normal mode
 
--- NERDTree
-
-map("n", "<Leader>nto", ":NERDTree<CR>") -- Open NERDTree
-map("n", "<Leader>ntf", ":NERDTreeFocus<CR>") -- Focus on NERDTree
-map("n", "<Leader>q", ":NERDTreeClose<CR>") -- Close NERDTree
+map("n", "<Leader>ntt", ":NeoTreeFocusToggle<CR>") -- Toggle neotree
 
 -- Telescope
 
@@ -44,7 +40,6 @@ map("n", "<Leader>t7", ":BufferGoto 7<CR>") -- Tab 7
 map("n", "<Leader>t8", ":BufferGoto 8<CR>") -- Tab 8
 map("n", "<Leader>t9", ":BufferGoto 9<CR>") -- Tab 9
 map("n", "<Leader>t0", ":BufferLast<CR>") -- Last tab
-
 map("n", "<Leader>tc", ":BufferClose<CR>") -- Close tab
 
 -- Commentary keymaps
@@ -61,11 +56,6 @@ map("n", "<Leader>cs", ":Cheatsheet<CR>")
 map("n", "<Leader>ip", ":IconPickerNormal alt_font symbols nerd_font emoji<CR>")
 map("n", "<Leader>ipy", ":IconPickerYank alt_font symbols nerd_font emoji<CR>")
 
--- Spotify
-
-map("n", "<Leader>sn", ":SpotifyNext<CR>:SpotifyCurrentSong<CR>")
-map("n", "<Leader>sp", ":SpotifyPrevious<CR>:SpotifyCurrentSong<CR>")
-
 -- LSP saga
 
 map("n", "K", ":Lspsaga hover_doc<CR>") -- open documentation of the section below the cursor
@@ -76,6 +66,7 @@ map("n", "gr", ":Lspsaga rename<CR>") -- rename symbol below the cursor
 map("n", "<Leader>o", ":LSoutlineToggle<CR>") -- open outline menu
 map("n", "<Leader>dn", ":Lspsaga diagnostic_jump_next<CR>") -- Go to next diagnostic
 map("n", "<Leader>dp", ":Lspsaga diagnostic_jump_prev<CR>") -- Go to the previous diagnostic
+map("n", "<Leader>ca", ":Lspsaga code_action<CR>") -- Open code actions menu
 
 -- Formatting
 map("n", "<Leader>f", ":lua vim.lsp.buf.formatting_seq_sync()<CR>")

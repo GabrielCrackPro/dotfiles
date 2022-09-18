@@ -1,32 +1,39 @@
-require("dashboard").custom_center = {
+local dashboard = require("dashboard")
+dashboard.custom_header = {
+	" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
+	" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
+	" ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║",
+	" ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║",
+	" ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║",
+	" ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝",
+}
+dashboard.custom_center = {
 	{
 		icon = "",
-		desc = "Recently opened files                 ",
-		shortcut = "SPC f h",
+		desc = " Recently opened files                 ",
 		action = "DasboardFindHistory",
 	},
 	{
 		icon = "",
-		desc = "Find file                 ",
-		shortcut = "SPC f f",
+		desc = " Find file                 ",
 		action = "Telescope find_files find_command=rg,--hidden,--files",
 	},
 	{
 		icon = "",
-		desc = "File explorer                 ",
-		shortcut = "SPC f b",
+		desc = " File explorer                 ",
 		action = "Telescope find_files",
 	},
 	{
 		icon = "",
-		desc = "Find word                 ",
-		shortcut = "SPC f w",
+		desc = " Find word                 ",
 		action = "Telescope live_grep",
 	},
 	{
 		icon = "",
-		desc = "Exit                 ",
-		shortcut = "q",
+		desc = " Exit                 ",
 		action = ":q",
 	},
+}
+dashboard.custom_footer = {
+	"🚀 Enjoy nvim",
 }
