@@ -3,6 +3,7 @@ require("maps") -- Keymaps
 require("plugins.plugins") -- Plugin config
 require("plugins.colorschemes") -- Themes and colorschemes
 -- Set up plugins
+
 require("plugins.luasnip")
 require("plugins.lualine")
 require("plugins.gitsigns")
@@ -30,19 +31,21 @@ require("plugins.nullls")
 require("plugins.transparent")
 require("plugins.barbar")
 require("plugins.neotree")
-
+require("plugins.symbolsoutline")
+require("plugins.bettercomments")
+require("plugins.mason")
 -- NOTE: completion config is in the plugins/plugins.lua file
 
 vim.notify = require("notify") -- Change vim default notification
 vim.notify("Loading plugins...", "warn", {
-  title = "Loading plugins...",
-  timeout = 2000,
-  on_open = function()
-    local timer = vim.loop.new_timer()
-    timer:start(3400, 0, function()
-      vim.notify("Plugins loaded successfully", "info", {
-        title = "Plugins loaded!",
-      })
-    end)
-  end,
+	title = "Loading plugins...",
+	timeout = 2000,
+	on_open = function()
+		local timer = vim.loop.new_timer()
+		timer:start(3400, 0, function()
+			vim.notify("Plugins loaded successfully", "info", {
+				title = "Plugins loaded!",
+			})
+		end)
+	end,
 })

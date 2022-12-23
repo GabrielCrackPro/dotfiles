@@ -1,8 +1,15 @@
 vim.cmd([[packadd packer.nvim]])
 
 require("packer").startup(function(use)
-	use("wbthomason/packer.nvim") -- Packer
-	use("olimorris/onedarkpro.nvim") -- Packer
+	use("wbthomason/packer.nvim") -- packer
+	-- Themes
+	use({
+		"hachy/eva01.vim",
+		branch = "main",
+	})
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use("Mofiqul/dracula.nvim")
+
 	use("ryanoasis/vim-devicons") -- Icons
 	use("xiyaowong/nvim-transparent") -- Transparent background
 	use("nvim-lualine/lualine.nvim") -- Statusline
@@ -48,6 +55,8 @@ require("packer").startup(function(use)
 		branch = "v2.x",
 		requires = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", "MunifTanjim/nui.nvim" },
 	})
+	use("simrat39/symbols-outline.nvim") -- Tree-like view for file symbols
+	use("Djancyp/better-comments.nvim") -- Better comments
 
 	-- Formatting
 	use("jose-elias-alvarez/null-ls.nvim")
@@ -69,6 +78,10 @@ require("packer").startup(function(use)
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 	})
+
+	-- Manage LSP servers
+
+	use("williamboman/mason.nvim")
 end)
 
 -- Set up completion
@@ -86,7 +99,7 @@ local select_opts = {
 
 local lspconfig = require("lspconfig")
 
-local servers = { "tsserver", "eslint", "cssls", "html", "intelephense", "jedi_language_server", "zk", "jsonls" }
+local servers = { "tsserver", "eslint", "cssls", "html", "phpactor", "jedi_language_server", "zk", "jsonls" }
 
 -- sumneko_lua separated config
 
@@ -215,37 +228,26 @@ cmp.setup({
 	},
 })
 
-local sign = function(opts)
-	vim.fn.sign_define(opts.name, {
-		texthl = opts.name,
-		text = opts.text,
-		numhl = "",
-	})
+-- Diagnostics
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+	underline = true,
+	update_in_insert = true,
+	virtual_text = { spacing = 4, prefix = "" },
+	severity_sort = true,
+})
+
+-- Diagnostic symbols in the sign column (gutter)
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+	local hl = "DiagnosticSign" .. type
+	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-sign({
-	name = "DiagnosticSignError",
-	text = "✘",
-})
-sign({
-	name = "DiagnosticSignWarn",
-	text = "▲",
-})
-sign({
-	name = "DiagnosticSignHint",
-	text = "⚑",
-})
-sign({
-	name = "DiagnosticSignInfo",
-	text = "ℹ",
-})
-
--- Diagnostics
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
+	virtual_text = {
+		prefix = "",
+	},
 	update_in_insert = true,
-	underline = true,
-	severity_sort = false,
 	float = true,
 })

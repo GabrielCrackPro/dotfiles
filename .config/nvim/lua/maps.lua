@@ -8,6 +8,9 @@ local map = function(mode, lhs, rhs, opts)
 	end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
+-- Reset search hightlight
+
+map("n","<Leader>rs", ":noh<CR>")
 
 -- Fast save
 
@@ -63,10 +66,23 @@ map("n", "gd", ":Lspsaga lsp_finder<CR>") -- find definition of the section belo
 map("i", "<C-k>", ":Lspsaga signature_help<CR>") -- find function signature in insert mode
 map("n", "gp", ":Lspsaga preview_definition<CR>") -- preview definition below the cursor
 map("n", "gr", ":Lspsaga rename<CR>") -- rename symbol below the cursor
-map("n", "<Leader>o", ":LSoutlineToggle<CR>") -- open outline menu
 map("n", "<Leader>dn", ":Lspsaga diagnostic_jump_next<CR>") -- Go to next diagnostic
 map("n", "<Leader>dp", ":Lspsaga diagnostic_jump_prev<CR>") -- Go to the previous diagnostic
 map("n", "<Leader>ca", ":Lspsaga code_action<CR>") -- Open code actions menu
 
+-- Glance
+
+map('n', 'gD', ':Glance definitions<CR>')
+map('n', 'gR', ':Glance references<CR>')
+map('n', 'gY', ':Glance type_definitions<CR>')
+map('n', 'gM', ':Glance implementations<CR>')
+
+-- Symbols Outline
+map("n", "<Leader>o", ":SymbolsOutline<CR>")
+
 -- Formatting
-map("n", "<Leader>f", ":lua vim.lsp.buf.formatting_seq_sync()<CR>")
+map(
+	"n",
+	"<Leader>f",
+	":lua vim.lsp.buf.format()<CR> :lua vim.notify('Document formatted succesfully','info', { title= 'File saved',timeout= 100})<CR>"
+)
