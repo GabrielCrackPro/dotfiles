@@ -1,13 +1,68 @@
 require("bufferline").setup({
+	-- Enable/disable animations
 	animation = true,
+
+	-- Enable/disable auto-hiding the tab bar when there is a single buffer
 	auto_hide = true,
-	closable = false,
-	clickable = false,
-	icons = true,
-	icon_custom_colors = true,
-	icon_separator_active = "▎",
-	icon_separator_inactive = "▎",
-	icon_close_tab = "",
-	icon_close_tab_modified = "●",
-	icon_pinned = "車",
+
+	-- Enable/disable current/total tabpages indicator (top right corner)
+	tabpages = true,
+
+	-- Enable/disable close button
+	closable = true,
+
+	-- Enables / disables diagnostic symbols
+	diagnostics = {
+		{ enabled = true, icon = " " }, -- ERROR
+		{ enabled = true, icon = " " }, -- WARN
+		{ enabled = true, icon = " " }, -- INFO
+		{ enabled = true, icon = " " }, -- HINT
+	},
+	diagnostics_update_in_insert = true,
+	diagnostics_indicator = function(count, level)
+		local icon = level:match("error") and " " or ""
+		return " " .. icon .. count
+	end,
+
+	-- Enable/disable icons
+	-- if set to 'numbers', will show buffer index in the tabline
+	-- if set to 'both', will show buffer index and icons in the tabline
+	icons = "both",
+
+	-- If set, the icon color will follow its corresponding buffer highlight group.
+	icon_custom_colors = false,
+
+	-- Configure icons on the bufferline.
+	icon_separator_active = "",
+	icon_separator_inactive = "",
+	icon_close_tab = "",
+	icon_close_tab_modified = "*",
+	icon_pinned = "",
+
+	-- If true, new buffers will be inserted at the start/end of the list.
+	insert_at_end = true,
+
+	-- Sets the maximum padding width with which to surround each tab
+	maximum_padding = 3,
+
+	-- Sets the minimum padding width with which to surround each tab
+	minimum_padding = 2,
+
+	-- Sets the maximum buffer name length.
+	maximum_length = 30,
+
+	-- If set, the letters for each buffer in buffer-pick mode will be
+	-- assigned based on their name. Otherwise or in case all letters are
+	-- already assigned, the behavior is to assign letters in order of
+	-- usability (see order below)
+	semantic_letters = true,
+
+	-- New buffer letters are assigned in this order. This order is
+	-- optimal for the qwerty keyboard layout but might need adjustment
+	-- for other layouts.
+	letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
+
+	-- Sets the name of unnamed buffers. By default format is "[Buffer X]"
+	-- where X is the buffer number. But only a static string is accepted here.
+	no_name_title = "New Tab",
 })

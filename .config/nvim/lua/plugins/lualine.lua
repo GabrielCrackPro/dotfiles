@@ -21,7 +21,11 @@ require("lualine").setup({
 		lualine_z = { "location" },
 	},
 	inactive_sections = {
-		lualine_c = { "filename" },
+		lualine_c = {{
+      "filename",
+      file_status = true,
+      path = 0
+    }},
 		lualine_x = { "location" },
 	},
 	extensions = { "neo-tree", "symbols-outline" },

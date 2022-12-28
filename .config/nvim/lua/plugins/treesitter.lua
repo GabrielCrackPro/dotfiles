@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
-	hightlight = {
+	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
 	},
@@ -17,5 +17,11 @@ require("nvim-treesitter.configs").setup({
 	},
 	autotag = {
 		enable = true,
+	},
+	rainbow = {
+		enable = true,
+		extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+		-- colors = {}, -- table of hex strings
+		-- termcolors = {} -- table of colour name strings
 	},
 })

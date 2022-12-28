@@ -2,21 +2,26 @@ vim.cmd([[packadd packer.nvim]])
 
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- packer
+	use("lewis6991/impatient.nvim") -- speedup startup
 	-- Themes
 	use({
 		"hachy/eva01.vim",
 		branch = "main",
 	})
-	use({ "catppuccin/nvim", as = "catppuccin" })
 	use("Mofiqul/dracula.nvim")
 
 	use("ryanoasis/vim-devicons") -- Icons
 	use("xiyaowong/nvim-transparent") -- Transparent background
 	use("nvim-lualine/lualine.nvim") -- Statusline
-	use("mattn/emmet-vim") -- Emmet vscode use in
-	use("romgrk/barbar.nvim") -- Move between tabs
+	use("mattn/emmet-vim") -- Emmet
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) -- Enable tabs
+	use("romgrk/barbar.nvim") -- Customize tabs
 	use("pangloss/vim-javascript") -- Correct colors in js syntax
 	use("nvim-treesitter/nvim-treesitter") -- Correct colored syntax
+	use({
+		"m-demare/hlargs.nvim",
+		requires = { "nvim-treesitter/nvim-treesitter" },
+	}) -- Highlight functions args using treesitter
 	use("nvim-lua/plenary.nvim") -- Necessary for telescope to work
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -27,22 +32,14 @@ require("packer").startup(function(use)
 	use("wakatime/vim-wakatime") -- Register work time
 	use("glepnir/dashboard-nvim") -- Custom start screen
 	use("folke/which-key.nvim") -- Display keybindings
-	use("windwp/nvim-autopairs") -- Put [], ),{} automatically
+	use("windwp/nvim-autopairs") -- Put [], (),{} automatically
 	use("windwp/nvim-ts-autotag") -- Close HTML and JSX tags automatically
 	use("norcalli/nvim-colorizer.lua") -- Preview HEX colors
 	use("folke/lsp-colors.nvim") -- Colors for lsp
-	use("folke/lsp-trouble.nvim") -- Symbols for lsp
 	use("lukas-reineke/indent-blankline.nvim") -- Show indent guides
 	use("dinhhuy258/git.nvim") -- Work with git
 	use("rcarriga/nvim-notify") -- Custom nvim notifications
-	use("shoukoo/commentary.nvim") -- Comment single lines or blocks just with a keybinding
-	use({
-		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		requires = "kyazdani42/nvim-web-devicons",
-	})
-	use("MunifTanjim/nui.nvim") -- Necessary for regexplainer to work
-	use("bennypowers/nvim-regexplainer") -- Show regexp explanation on hover
+	use("MunifTanjim/nui.nvim") -- Component library for nvim
 	use("lewis6991/spellsitter.nvim") -- Check spell mistakes
 	use("nvim-lua/popup.nvim") -- Show telescope and more use ins in a popup window
 	use("sudormrfbin/cheatsheet.nvim") -- Cheatsheet for learning keybindings
@@ -57,10 +54,15 @@ require("packer").startup(function(use)
 	})
 	use("simrat39/symbols-outline.nvim") -- Tree-like view for file symbols
 	use("Djancyp/better-comments.nvim") -- Better comments
-
+  use("p00f/nvim-ts-rainbow") -- Rainbow parenthesis
+  use("uga-rosa/ccc.nvim") -- Color picker
 	-- Formatting
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("MunifTanjim/eslint.nvim")
+	use({
+		"kylechui/nvim-surround",
+		tag = "*",
+	})
 
 	-- Completion
 	use("neovim/nvim-lspconfig")
