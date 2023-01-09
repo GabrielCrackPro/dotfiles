@@ -4,6 +4,13 @@ module.exports = {
     "es2021": true,
     "node": true
   },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
   "rules": {
     "indent": [
       "error",
@@ -15,7 +22,7 @@ module.exports = {
     ],
     "semi": [
       "error",
-      "never"
+      "always"
     ],
     "arrow-parens": [
       "error"
@@ -65,4 +72,4 @@ module.exports = {
       "error"
     ]
   }
-}
+};
