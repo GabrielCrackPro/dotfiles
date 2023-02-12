@@ -6,7 +6,7 @@ export ZSH="/Users/gabrielvr/.oh-my-zsh"
 ZSH_THEME="dracula"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -51,6 +51,8 @@ NC='\033[0m' # No Color
 alias zsh:config="nvim ~/.zshrc"
 alias nvim:config="nvim ~/.config/nvim/"
 alias tmux:config="nvim ~/.config/tmux/tmux.conf"
+alias tmux:dracula:config="nvim ~/.config/tmux/plugins/tmux/scripts/dracula.sh"
+alias hs:config="nvim ~/.hammerspoon/init.lua"
 alias zsh:load="source ~/.zshrc"
 
 # Utilities
@@ -101,14 +103,13 @@ alias tmux:load="tmux source ~/.config/tmux/tmux.conf && echo ' tmux config r
 
 alias vim="nvim"
 alias v="nvim"
+alias v.="nvim ."
 
 alias cld="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; echo 'DNS Cache cleaned'" # Clear DNS cache
 
-# Activar avaluapp-env python
+# If z.sh location changes update this
 
-alias env:on="source ~/DAW/2DAW/DesarrolloWebCS/avaluapp_django/avaluapp-env/bin/activate"
-alias env:off="deactivate"
-. ~/z/z.sh # Load z directory jumper
+. ~/bin_custom/z.sh   # Load z directory jumper
 
 # Custom commands at launch
 
@@ -150,6 +151,7 @@ RPROMPT="%{$c[green]%}( %D{%H:%M:%S} )%{$c[reset]%}"
 export COWFILES="/opt/homebrew/Cellar/cowsay/3.04_1/share/cows" # Cowsay cows path
 export ESLINTCONF="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/.eslintrc.js" # EsLint config file url
 export LICENSETEMP="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/LICENSE_template" # License template url
+
 # Create dev working directory function
 function mkd(){
 mkdir -p $1/public 2>/dev/null
@@ -189,6 +191,10 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 setopt aliases
 
+eval "$(starship init zsh)"
+
+export PATH=$PATH:/Users/gabrielvr/.spicetify
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-export PATH=$PATH:/Users/gabrielvr/.spicetify
+
