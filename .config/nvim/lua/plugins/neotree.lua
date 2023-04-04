@@ -17,8 +17,8 @@ require("neo-tree").setup({
 			highlight = "NeoTreeIndentMarker",
 			-- expander config, needed for nesting files
 			with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-			expander_collapsed = "",
-			expander_expanded = "",
+			expander_collapsed = "",
+			expander_expanded = "",
 			expander_highlight = "NeoTreeExpander",
 		},
 		icon = {
@@ -31,7 +31,7 @@ require("neo-tree").setup({
 			highlight = "NeoTreeFileIcon",
 		},
 		modified = {
-			symbol = "[+]",
+			symbol = "",
 			highlight = "NeoTreeModified",
 		},
 		name = {

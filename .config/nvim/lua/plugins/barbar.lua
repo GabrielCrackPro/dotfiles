@@ -11,13 +11,6 @@ require("bufferline").setup({
 	-- Enable/disable close button
 	closable = true,
 
-	-- Enables / disables diagnostic symbols
-	diagnostics = {
-		{ enabled = true, icon = " " }, -- ERROR
-		{ enabled = true, icon = " " }, -- WARN
-		{ enabled = true, icon = " " }, -- INFO
-		{ enabled = true, icon = " " }, -- HINT
-	},
 	diagnostics_update_in_insert = true,
 	diagnostics_indicator = function(count, level)
 		local icon = level:match("error") and " " or ""
@@ -25,19 +18,31 @@ require("bufferline").setup({
 	end,
 
 	-- Enable/disable icons
-	-- if set to 'numbers', will show buffer index in the tabline
-	-- if set to 'both', will show buffer index and icons in the tabline
-	icons = "both",
+  icons = {
+    buffer_index = true,
+    modified = {
+      button = "*"
+    },
+    separator = {
+      left = "",
+      button = ""
+    },
+    pinned = {
+      button = "",
+    },
+    filetype = {
+      enabled = true
+    },
+    diagnostics = {
+      [vim.diagnostic.severity.ERROR] = {enabled = true, icon = " "},
+      [vim.diagnostic.severity.WARN] = {enabled = true, icon = " "},
+      [vim.diagnostic.severity.INFO] = {enabled = true, icon = " "},
+      [vim.diagnostic.severity.HINT] = {enabled = true, icon = " " },
+    },
+  },
 
 	-- If set, the icon color will follow its corresponding buffer highlight group.
 	icon_custom_colors = false,
-
-	-- Configure icons on the bufferline.
-	icon_separator_active = "",
-	icon_separator_inactive = "",
-	icon_close_tab = "",
-	icon_close_tab_modified = "*",
-	icon_pinned = "",
 
 	-- If true, new buffers will be inserted at the start/end of the list.
 	insert_at_end = true,

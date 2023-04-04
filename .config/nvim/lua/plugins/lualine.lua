@@ -1,3 +1,9 @@
+local wpm = require("wpm")
+wpm.setup({
+	sample_count = 15,
+	sample_interval = 3000,
+	percentile = 0.9,
+})
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
@@ -15,18 +21,14 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", "diff", "diagnostics" },
-		lualine_c = { "filetype", "filename" },
-		-- lualine_x = { "fileformat" },
+		lualine_c = { {
+			"filename",
+			file_status = true,
+			path = 1,
+		} },
+		lualine_x = { wpm.wpm, wpm.history_graph },
 		lualine_y = { "progress" },
 		lualine_z = { "location" },
-	},
-	inactive_sections = {
-		lualine_c = {{
-      "filename",
-      file_status = true,
-      path = 0
-    }},
-		lualine_x = { "location" },
 	},
 	extensions = { "neo-tree", "symbols-outline" },
 })

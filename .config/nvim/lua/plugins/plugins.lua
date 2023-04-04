@@ -2,7 +2,9 @@ vim.cmd([[packadd packer.nvim]])
 
 require("packer").startup(function(use)
 	use("wbthomason/packer.nvim") -- packer
+
 	use("lewis6991/impatient.nvim") -- speedup startup
+
 	-- Themes
 	use({
 		"hachy/eva01.vim",
@@ -14,7 +16,11 @@ require("packer").startup(function(use)
 	use("xiyaowong/nvim-transparent") -- Transparent background
 	use("nvim-lualine/lualine.nvim") -- Statusline
 	use("mattn/emmet-vim") -- Emmet
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" }) -- Enable tabs
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v3.*",
+		requires = "nvim-tree/nvim-web-devicons",
+	}) -- Enable tabs
 	use("romgrk/barbar.nvim") -- Customize tabs
 	use("pangloss/vim-javascript") -- Correct colors in js syntax
 	use("nvim-treesitter/nvim-treesitter") -- Correct colored syntax
@@ -40,8 +46,7 @@ require("packer").startup(function(use)
 	use("dinhhuy258/git.nvim") -- Work with git
 	use("rcarriga/nvim-notify") -- Custom nvim notifications
 	use("MunifTanjim/nui.nvim") -- Component library for nvim
-	use("lewis6991/spellsitter.nvim") -- Check spell mistakes
-	use("nvim-lua/popup.nvim") -- Show telescope and more use ins in a popup window
+	use("nvim-lua/popup.nvim") -- Show telescope and more using a popup window
 	use("sudormrfbin/cheatsheet.nvim") -- Cheatsheet for learning keybindings
 	use("stevearc/dressing.nvim") -- Necessary for cheatsheet to work
 	use("ziontee113/icon-picker.nvim") -- Custom icon picker for telescope
@@ -51,11 +56,24 @@ require("packer").startup(function(use)
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v2.x",
 		requires = { "nvim-lua/plenary.nvim", "kyazdani42/nvim-web-devicons", "MunifTanjim/nui.nvim" },
-	})
-	use("simrat39/symbols-outline.nvim") -- Tree-like view for file symbols
+	}) -- File explorer
 	use("Djancyp/better-comments.nvim") -- Better comments
-  use("p00f/nvim-ts-rainbow") -- Rainbow parenthesis
-  use("uga-rosa/ccc.nvim") -- Color picker
+	use("p00f/nvim-ts-rainbow") -- Rainbow parenthesis
+	use("uga-rosa/ccc.nvim") -- Color picker
+	use("j-hui/fidget.nvim") -- LSP Progress UI
+	use({
+		"folke/noice.nvim",
+		requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+	}) -- Replace all the UI
+
+	use("jcdickinson/wpm.nvim") -- WPM counter
+	use("RRethy/vim-illuminate") -- Highlight the uses of the word under the cursor
+	use({
+		"ibhagwan/fzf-lua",
+		requires = { "nvim-tree/nvim-web-devicons" },
+	}) -- Fuzzy finder
+	use("monaqa/dial.nvim") -- Increment/decrement numbers and dates
+  use("beauwilliams/focus.nvim") -- Better split window management
 	-- Formatting
 	use("jose-elias-alvarez/null-ls.nvim")
 	use("MunifTanjim/eslint.nvim")
@@ -84,6 +102,7 @@ require("packer").startup(function(use)
 	-- Manage LSP servers
 
 	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 end)
 
 -- Set up completion
@@ -101,11 +120,11 @@ local select_opts = {
 
 local lspconfig = require("lspconfig")
 
-local servers = { "tsserver", "eslint", "cssls", "html", "phpactor", "jedi_language_server", "zk", "jsonls" }
+local servers = { "tsserver", "eslint", "cssls", "html", "phpactor", "jedi_language_server", "zk", "jsonls", "cmake" }
 
 -- sumneko_lua separated config
 
-lspconfig.sumneko_lua.setup({
+lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			diagnostics = {
@@ -235,15 +254,27 @@ cmp.setup({
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 	underline = true,
 	update_in_insert = true,
-	virtual_text = { spacing = 4, prefix = "" },
+	virtual_text = {
+		spacing = 4,
+		prefix = "",
+	},
 	severity_sort = true,
 })
 
 -- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = {
+	Error = " ",
+	Warn = " ",
+	Hint = " ",
+	Info = " ",
+}
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
-	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+	vim.fn.sign_define(hl, {
+		text = icon,
+		texthl = hl,
+		numhl = "",
+	})
 end
 
 vim.diagnostic.config({

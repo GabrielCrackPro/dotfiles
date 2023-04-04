@@ -1,7 +1,6 @@
--- Remap leader key
-vim.g.mapleader = " "
--- Disable mouse
-vim.opt.mouse = ""
+vim.g.mapleader = " " -- Change leader key to SPACE
+vim.opt.mouse = "" -- Disable mouse
+
 -- Set up nvim global settings
 vim.opt.background = "dark" -- set background color
 vim.opt.compatible = false -- use Vim settings, rather then Vi
@@ -24,14 +23,15 @@ vim.opt.shiftwidth = 2 -- define indent width
 -- vim.opt.guifont = "Cascadia\\ Code\\"
 vim.opt.guifont = "MesloLGS\\ Nerd\\ Font\\"
 vim.opt.syntax = "on" -- enable syntax
-vim.opt.guicursor = "" -- disable default block cursor
+--- vim.opt.guicursor = "" -- disable default block cursor
 -- Messages
 vim.opt.shortmess:append({
   I = true, -- No splash screen
   W = true, -- Don't print "written" when editing
-  a = true, -- Use abbreviations in messages ([RO] instead of [readonly])
   c = true, -- Do not show ins-completion-menu messages (match 1 of 2)
   F = true, -- Do not print file name when opening a file
+  n = true, -- Use [New] instead of [New File]
+  l = true, -- Use "999L, 888B" instead of "999 lines, 888 bytes"
 })
 
 vim.cmd("syntax enable") -- enable colorized syntax

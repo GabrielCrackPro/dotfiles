@@ -84,10 +84,20 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/barbar.nvim",
     url = "https://github.com/romgrk/barbar.nvim"
   },
+  ["better-comments.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/better-comments.nvim",
+    url = "https://github.com/Djancyp/better-comments.nvim"
+  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
+  },
+  ["ccc.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/ccc.nvim",
+    url = "https://github.com/uga-rosa/ccc.nvim"
   },
   ["cheatsheet.nvim"] = {
     loaded = true,
@@ -119,15 +129,20 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["commentary.nvim"] = {
-    loaded = true,
-    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/commentary.nvim",
-    url = "https://github.com/shoukoo/commentary.nvim"
-  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
+  },
+  ["dial.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/dial.nvim",
+    url = "https://github.com/monaqa/dial.nvim"
+  },
+  ["dracula.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/dracula.nvim",
+    url = "https://github.com/Mofiqul/dracula.nvim"
   },
   ["dressing.nvim"] = {
     loaded = true,
@@ -144,10 +159,30 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/eslint.nvim",
     url = "https://github.com/MunifTanjim/eslint.nvim"
   },
+  ["eva01.vim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/eva01.vim",
+    url = "https://github.com/hachy/eva01.vim"
+  },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
+  },
+  ["focus.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/focus.nvim",
+    url = "https://github.com/beauwilliams/focus.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["fzf-lua"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/fzf-lua",
+    url = "https://github.com/ibhagwan/fzf-lua"
   },
   ["git.nvim"] = {
     loaded = true,
@@ -159,10 +194,20 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["hlargs.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/hlargs.nvim",
+    url = "https://github.com/m-demare/hlargs.nvim"
+  },
   ["icon-picker.nvim"] = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/icon-picker.nvim",
     url = "https://github.com/ziontee113/icon-picker.nvim"
+  },
+  ["impatient.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/impatient.nvim",
+    url = "https://github.com/lewis6991/impatient.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
@@ -173,11 +218,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
     url = "https://github.com/folke/lsp-colors.nvim"
-  },
-  ["lsp-trouble.nvim"] = {
-    loaded = true,
-    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/lsp-trouble.nvim",
-    url = "https://github.com/folke/lsp-trouble.nvim"
   },
   ["lspkind.nvim"] = {
     loaded = true,
@@ -194,10 +234,25 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["mason-lspconfig.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+    url = "https://github.com/williamboman/mason-lspconfig.nvim"
+  },
+  ["mason.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/mason.nvim",
+    url = "https://github.com/williamboman/mason.nvim"
+  },
   ["neo-tree.nvim"] = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
+  ["noice.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/noice.nvim",
+    url = "https://github.com/folke/noice.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -239,10 +294,10 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
   },
-  ["nvim-regexplainer"] = {
+  ["nvim-surround"] = {
     loaded = true,
-    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/nvim-regexplainer",
-    url = "https://github.com/bennypowers/nvim-regexplainer"
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
   },
   ["nvim-transparent"] = {
     loaded = true,
@@ -259,15 +314,15 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
+  ["nvim-ts-rainbow"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
+    url = "https://github.com/p00f/nvim-ts-rainbow"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
-    url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["onedarkpro.nvim"] = {
-    loaded = true,
-    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/onedarkpro.nvim",
-    url = "https://github.com/olimorris/onedarkpro.nvim"
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -284,11 +339,6 @@ _G.packer_plugins = {
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["spellsitter.nvim"] = {
-    loaded = true,
-    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/spellsitter.nvim",
-    url = "https://github.com/lewis6991/spellsitter.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -298,6 +348,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/vim-devicons",
     url = "https://github.com/ryanoasis/vim-devicons"
+  },
+  ["vim-illuminate"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/vim-illuminate",
+    url = "https://github.com/RRethy/vim-illuminate"
   },
   ["vim-javascript"] = {
     loaded = true,
@@ -323,6 +378,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["wpm.nvim"] = {
+    loaded = true,
+    path = "/Users/gabrielvr/.local/share/nvim/site/pack/packer/start/wpm.nvim",
+    url = "https://github.com/jcdickinson/wpm.nvim"
   }
 }
 
