@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 export ZSH="/Users/gabrielvr/.oh-my-zsh"
 
 ZSH_THEME="dracula"
@@ -45,30 +42,39 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 
-# Custom Aliases
+# Custom aliases
 
-# Config files
+
+# View config files
+alias zsh:view="bat ~/.zshrc"
+alias nvim:view="bat ~/.config/nvim/"
+alias tmux:view="bat ~/.config/tmux/tmux.conf"
+alias tmux:dracula:view="bat ~/.config/tmux/plugins/tmux/scripts/dracula.sh"
+alias hs:view="bat ~/.hammerspoon/init.lua"
+
+# Edit config files
 alias zsh:config="nvim ~/.zshrc"
 alias nvim:config="nvim ~/.config/nvim/"
 alias tmux:config="nvim ~/.config/tmux/tmux.conf"
 alias tmux:dracula:config="nvim ~/.config/tmux/plugins/tmux/scripts/dracula.sh"
 alias hs:config="nvim ~/.hammerspoon/init.lua"
-alias zsh:load="source ~/.zshrc"
+
+
+alias zsh:load="source ~/.zshrc" # Reload zsh config
 
 # Utilities
 alias dev="cd ~/dev"
-alias express="express-cli-generator"
 alias rmds="sudo python3 ~/dev/dsstore-deleter/main.py /"
 alias cat="bat"
 alias ls="lsd"
 alias update="brew update && brew upgrade && brew cleanup --prune=all && brew autoremove"
 alias eman="tldr"
-alias spt="speed-test -v"
 alias clh="history -c"
-alias cra="npx create-react-app"
+alias vite="npm init vite@latest"
 alias h="howdoi -c"
 alias top="vtop"
-alias vpn="openvpn ~/VPN/vpnbook-pl226-tcp443.ovpn"
+alias wget="aria2c"
+alias pt="periodic-table-cli"
 
 # Git aliases
 
@@ -97,7 +103,7 @@ alias tmux:install="~/.config/tmux/plugins/tpm/bin/install_plugins" # TPM instal
 alias tmux:update="~/.config/tmux/plugins/tpm/bin/update_plugins all" # TPM update
 alias tmux:clean="~/.config/tmux/plugins/tpm/bin/clean_plugins" # TPM uninstall
 
-alias tmux:load="tmux source ~/.config/tmux/tmux.conf && echo ' tmux config reloaded'"
+alias tmux:load="tmux source ~/.config/tmux/tmux.conf && echo ' tmux config reloaded'"
 
 # Nvim aliases
 
@@ -106,6 +112,7 @@ alias v="nvim"
 alias v.="nvim ."
 
 alias cld="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; echo 'DNS Cache cleaned'" # Clear DNS cache
+
 
 # If z.sh location changes update this
 
@@ -118,7 +125,7 @@ clear
 # Display last login info
 
 LAST_LOGIN="$(last -tty gabrielvr | head -n 1 | cut -b 38-53)"
-echo -e "$c[green][  ] Last login - $c[reset]${LAST_LOGIN}"
+echo -e "$c[green][ 󰍂 ] Last login - $c[reset]${LAST_LOGIN}"
 
 # Display private IP
 
@@ -148,44 +155,26 @@ RPROMPT="%{$c[green]%}( %D{%H:%M:%S} )%{$c[reset]%}"
 
 # Custom env variables
 
+export BAT_THEME=Dracula
+
+export ANDORID_SDK_ROOT="~/Library/Android/sdk"
+
 export COWFILES="/opt/homebrew/Cellar/cowsay/3.04_1/share/cows" # Cowsay cows path
-export ESLINTCONF="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/.eslintrc.js" # EsLint config file url
+export ESLINTJS="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/eslint/js/.eslintrc.js" # EsLint JS config file url
+export ESLINTTS="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/eslint/ts/.eslintrc.json" # EsLint TS config file url
 export LICENSETEMP="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/LICENSE_template" # License template url
+export CUSTOM_BIN="/Users/gabrielvr/bin_custom"
 
-# Create dev working directory function
-function mkd(){
-mkdir -p $1/public 2>/dev/null
-if [ -d "$1/public" ];then
-  html_content='
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<script src="./app.js"></script>
-</body>
-</html>
-'
-  touch $1/public/index.html
-	echo $html_content > $1/public/index.html
-	touch $1/public/style.css 2>/dev/null
-	touch $1/public/app.js 2>/dev/null
-	cd $1
-  npm init -y 1>/dev/null
-  npm i eslint -D 1>/dev/null
-  wget -q $ESLINTCONF
-  wget -q $LICENSETEMP
-  mv LICENSE_template LICENSE
-  npx gitignore node 1>/dev/null
-	echo "$c[green]Directory $1 created successfully$c[reset]"
-else
-	echo "$c[red]Error creating directory $1 $c[reset]"
-fi
-}
-
+export PATH="$PATH:/Users/gabrielvr/.local/share/gem/ruby/2.6.0/bin"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools
+export CAPACITOR_ANDROID_STUDIO_PATH=/Users/gabrielvr/Library/Application\Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/213.7172.25.2113.9123335/Android\Studio.app/Contents/MacOS/studio
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+# Add flutter to path
+export PATH="$PATH:/Users/gabrielvr/flutter/bin"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
@@ -195,6 +184,23 @@ eval "$(starship init zsh)"
 
 export PATH=$PATH:/Users/gabrielvr/.spicetify
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+function rmk(){
+	scrub -p dod $1
+	shred -zun 10 -v $1
+}
+
+# Create projects aliases
+
+# Load functions
+source $CUSTOM_BIN/create-react-ts.sh
+source $CUSTOM_BIN/create-flutter-app.sh
+
+alias crt="create-react-ts" # Create React with TS project
+alias cfa="create-flutter-app" # Create Flutter App
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
