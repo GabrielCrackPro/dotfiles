@@ -1,5 +1,5 @@
 require("noice").setup({
-  messages = { enabled = false },
+  messages = { enabled = true },
   lsp = {
     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
     override = {
@@ -8,7 +8,7 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = true,
     },
     progress = {
-      enabled = false,
+      enabled = true,
     },
     hover = {
       enabled = false,
