@@ -1,5 +1,8 @@
----@diagnostic disable: missing-fields
-local treesitter = require("nvim-treesitter.configs")
+local present, treesitter = pcall(require, "nvim-treesitter.configs")
+
+if not present then
+  return
+end
 
 treesitter.setup({
   auto_install = true,
@@ -8,5 +11,13 @@ treesitter.setup({
     "typescript",
     "tsx",
     "html",
+    "markdown",
+    "markdown_inline",
+  },
+  indent = {
+    enable = true,
+  },
+  highlight = {
+    enable = true,
   },
 })

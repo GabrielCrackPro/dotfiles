@@ -40,12 +40,18 @@ keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<cr>", opts)
 keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", opts)
 keymap.set("n", "<Leader>x", "<cmd>lua require('mini.bufremove').delete(0, false)<cr>", opts)
 
+-- File Explorer
+keymap.set("n", "<Leader>e", "<cmd>NvimTreeToggle<cr>", opts)
+
+-- Search and replace in multiple files
+keymap.set("n", "<Leader>sp", "<cmd>Spectre<cr>", opts)
+
 -- LSP
 keymap.set("n", "gd", "<cmd>Lspsaga goto_definition<cr>", opts)
 keymap.set("n", "gD", "<cmd>Lspsaga goto_type_definition<cr>", opts)
 keymap.set("n", "pd", "<cmd>Lspsaga peek_definition<cr>", opts)
 keymap.set("n", "pD", "<cmd>Lspsaga peek_type_definition<cr>", opts)
-keymap.set("n", "K", "<cmd>Lspsaga hover_doc<cr>", opts)
+keymap.set("n", "hd", "<cmd>Lspsaga hover_doc<cr>", opts)
 keymap.set("n", "<Leader>ra", "<cmd>Lspsaga rename<cr>", opts)
 keymap.set("n", "<Leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
 keymap.set("n", "<Leader>o", "<cmd>Lspsaga outline<cr>", opts)
