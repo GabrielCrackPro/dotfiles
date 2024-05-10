@@ -1,6 +1,4 @@
-export ZSH="/Users/gabrielvr/.oh-my-zsh"
-
-ZSH_THEME="dracula"
+export ZSH="/Users/gabrielvr/.oh-my-zsh/"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -38,12 +36,14 @@ alias zsh:view="bat ~/.zshrc"
 alias nvim:view="bat ~/.config/nvim/"
 alias tmux:view="bat ~/.config/tmux/tmux.conf"
 alias tmux:dracula:view="bat ~/.config/tmux/plugins/tmux/scripts/dracula.sh"
+alias posh:view="bat ~/.config/oh-my-posh/themes/custom.json"
 
 # Edit config files
 alias zsh:config="nvim ~/.zshrc"
 alias nvim:config="nvim ~/.config/nvim/"
 alias tmux:config="nvim ~/.config/tmux/tmux.conf"
 alias tmux:theme:config="nvim ~/.config/tmux/plugins/tmux/scripts/dracula.sh"
+alias posh:config="nvim ~/.config/oh-my-posh/themes/custom.json"
 
 alias zsh:load="source ~/.zshrc" # Reload zsh config
 
@@ -51,9 +51,14 @@ alias zsh:load="source ~/.zshrc" # Reload zsh config
 alias dev="cd ~/dev"
 alias cat="bat"
 alias ls="lsd"
+alias cd=z
 alias update="brew update && brew upgrade && brew cleanup --prune=all && brew autoremove"
 alias clh="history -c"
-alias rmds="python3 ~/dev/scripts/dsstore-killer.py /"
+alias rmds="sudo python3 ~/dev/scripts/dsstore-killer.py /"
+alias tmux:start="tmux ls && read tmux_session && tmux attach -t ${tmux_session:-default} || tmux new -s ${tmux_session:-default}"
+alias tmux:dev="sh ~/dev/scripts/tmux_dev.sh"
+alias browser="open -a 'Arc'"
+
 
 # Git aliases
 
@@ -66,7 +71,6 @@ alias gl="git log"
 
 # Spotify aliases
 
-alias sp="spotify"
 alias spp="spotify play"
 alias sppa="spotify pause"
 alias spn="spotify next"
