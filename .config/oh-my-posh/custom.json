@@ -42,7 +42,8 @@
               "~/.config/tmux": "\uebc8",
               "~/Desktop": "\uf108",
               "~/Downloads": "\udb80\uddda",
-              "~/dev": "\ue709"
+              "~/dev": "\ue709",
+              "C:/Users/gvargas/Projects": "\ue709"
             },
             "max_depth": 3,
             "mixed_threshold": 3,
