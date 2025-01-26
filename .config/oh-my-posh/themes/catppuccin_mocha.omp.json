@@ -1,0 +1,93 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "blue": "#89B4FA",
+    "closer": "p:os",
+    "lavender": "#B4BEFE",
+    "os": "#ACB0BE",
+    "pink": "#F5C2E7"
+  },
+  "transient_prompt": {
+    "template": "{{ .Folder }}  > ",
+    "foreground": "p:pink"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{.Icon}} ",
+          "foreground": "p:os",
+          "type": "os",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ .UserName }} ",
+          "foreground": "p:blue",
+          "type": "session",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "folder_separator_icon": "/",
+            "hide_root_location": true,
+            "home_icon": "\udb80\udedc",
+            "mapped_locations": {
+              "~/.config": "\ue615",
+              "~/.config/nvim": "\ue62b",
+              "~/.config/tmux": "\uebc8",
+              "~/Desktop": "\uf108",
+              "~/Downloads": "\udb80\uddda",
+              "~/dev": "\ue709",
+              "C:/Users/gvargas/Projects": "\ue709"
+            },
+            "max_depth": 3,
+            "mixed_threshold": 3,
+            "style": "mixed"
+          },
+          "template": "<b> {{ .Path }} </b>",
+          "foreground": "p:pink",
+          "type": "path",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "cache_duration": "none",
+            "cherry_pick_icon": "\ue29b ",
+            "commit_icon": "\uf417 ",
+            "fetch_status": false,
+            "fetch_upstream_icon": false,
+            "merge_icon": "\ue727 ",
+            "no_commits_icon": "\uf594 ",
+            "rebase_icon": "\ue728 ",
+            "revert_icon": "\uf0e2 ",
+            "tag_icon": "\uf412 "
+          },
+          "template": "{{ .HEAD }} ",
+          "foreground": "p:lavender",
+          "type": "git",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\uf105",
+          "foreground": "p:closer",
+          "type": "text",
+          "style": "plain"
+        }
+      ]
+    }
+  ],
+  "version": 3,
+  "final_space": true
+}
