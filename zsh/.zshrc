@@ -49,15 +49,12 @@ alias zsh:load="source ~/.zshrc" # Reload zsh config
 
 # Utilities
 alias dev="cd ~/dev"
-alias cat="bat"
 alias ls="lsd"
-alias cd=z
 alias update="brew update && brew upgrade && brew cleanup --prune=all && brew autoremove"
 alias clh="history -c"
 alias rmds="sudo python3 ~/dev/scripts/dsstore-killer.py /"
 alias tmux:start="tmux ls && read tmux_session && tmux attach -t ${tmux_session:-default} || tmux new -s ${tmux_session:-default}"
 alias tmux:dev="sh ~/dev/scripts/tmux_dev.sh"
-alias browser="open -a 'Arc'"
 
 
 # Git aliases
@@ -68,6 +65,10 @@ alias gs="git status -s"
 alias gcm="git commit -m"
 alias gp="git push"
 alias gl="git log"
+alias glo="git log --oneline"
+
+alias gsd="git checkout develop" # chamge to develop branch
+alias gsm="git checkout main" # change to main branch
 
 # Spotify aliases
 
@@ -96,34 +97,65 @@ alias v.="nvim ."
 
 alias cld="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder && echo 'DNS Cache cleaned'" # Clear DNS cache
 
+alias -g -- --help='--help 2>&1 | bat --language=help' # Use bat as --help viewer
+
+# Bat replacements
+
+batdiff() {
+  diff -u "$1" "$2" | bat -l diff
+}
+
+alias cat="bat --paging=never"
+alias less="bat --paging=always"
+alias tail="bat --paging=never --line-range :100"
+alias head="bat --paging=never --line-range 1:100"
+alias find="find | bat -l plain"
+alias diff="batdiff"
+
+
+git config --global pager.diff "bat --paging=always --decorations=always"
+git config --global pager.show "bat --paging=always --decorations=always"
+git config --global pager.log "bat --paging=always --decorations=always"
+git config --global pager.branch "bat --paging=always --decorations=always"
+
 # Custom commands at launch
 
 clear
 neofetch
 
+
+source /Users/gabrielvr/zsh-syntax-highlighting/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source /Users/gabrielvr/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load oh my posh config
-eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/custom.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/themes/catppuccin_mocha.omp.json)"
 
-# Custom env variables
-
-export COWFILES="/opt/homebrew/Cellar/cowsay/3.04_1/share/cows" # Cowsay cows path
-export ESLINTJS="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/eslint/js/.eslintrc.js" # EsLint JS config file url
-export ESLINTTS="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/eslint/ts/.eslintrc.json" # EsLint TS config file url
-export LICENSETEMP="https://raw.githubusercontent.com/GabrielCrackPro/dotfiles/main/LICENSE_template" # License template url
+# Config env variables
 
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#265c6f,bold"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--color=selected-bg:#45475a \
+--multi"
+
+
+export BAT_THEME="Catppuccin Mocha"
+
+export MANPAGER="sh -c 'col -bx | bat -l man --paging=always'"
+
+
+export LAZYGIT_CONFIG_DIR="~/Library/Application Support/lazygit"
 
 setopt aliases
 
 
+
+
 export PATH=$PATH:/Users/gabrielvr/.spicetify
 
-source /Users/gabrielvr/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 export NVM_DIR="$HOME/.nvm"
@@ -133,3 +165,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+
