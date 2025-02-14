@@ -2,6 +2,10 @@
 
 PLAYING=$(~/.config/sketchybar/plugins/spotify.sh)
 
+if [[ ${#PLAYING} -gt 20 ]]; then
+  PLAYING="${PLAYING:0:17}..."
+fi
+
 if [[ $PLAYING != "None" ]]; then
   if [[ $PLAYING == "En Pausa" ]]; then
     sketchybar --set $NAME label.drawing=on icon.drawing=on

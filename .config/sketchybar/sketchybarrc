@@ -27,8 +27,9 @@ BAR_PROPS=(
   corner_radius=10
   y_offset=6
   margin=6
-  blur_radius=30
+  blur_radius=50
   notch_width=0
+  background.color=$TRANSPARENT
 )
 
 DEF_PROPS=(
@@ -54,12 +55,13 @@ sketchybar --add event spotify_change $SPOTIFY_CHANGE_EVENT
 
 # -- LEFT Side Items --
 source "$ITEM_DIR/apple.sh"
-# source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # -- RIGHT Side Items --
 
 source "$ITEM_DIR/time.sh"
+source "$ITEM_DIR/uptime.sh"
 source "$ITEM_DIR/battery.sh"
 # source "$ITEM_DIR/brew.sh"
 source "$ITEM_DIR/sound.sh"
