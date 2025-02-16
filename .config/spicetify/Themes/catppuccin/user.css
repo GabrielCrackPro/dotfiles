@@ -1,3 +1,13 @@
+:root {
+  --spice-text: #b4e1f3 !important;
+  --spice-main: #11101b !important;
+  --spice-main-elevated: var(--spice-main) !important;
+}
+
+* {
+  font-family: "CaskaydiaCove Nerd Font", sans-serif !important;
+}
+
 :root .Root__main-view .UyzJidwrGk3awngSGIwv {
   color: var(--spice-subtext);
 }
@@ -63,6 +73,20 @@
 }
 :root .Root__nav-bar .main-navBar-navBarLinkActive {
   background-color: var(--spice-tab-active);
+}
+
+:root .Root__now-playing-bar {
+  background-color: var(--spice-main) !important;
+}
+
+.main-nowPlayingBar-nowPlayingBar {
+  position: absolute;
+  bottom: 10px;
+  background: var(--spice-main);
+  left: 50%;
+  border: 1px solid var(--spice-text);
+  border-radius: 10px;
+  transform: translateX(-50%);
 }
 
 :root
@@ -329,4 +353,205 @@
 /* Hide bottom ads banner */
 ._Cq69xKZBtHaaeMZXIdk {
   display: none !important;
+}
+
+/* Make panels background follow main color */
+.main-home-homeHeader.B9yNi5FlwGJt0nMEM5HS,
+.UqLpBiryzmdVyUucfSTQ.DXJIVl0qgWOfcIK6Mc5Y,
+.main-yourLibraryX-libraryContainer.sikBfynL1Y6I25nVpbAg,
+.main-trackList-trackListHeader.main-trackList-trackListHeaderStuck,
+.main-topBar-background,
+.main-home-filterChipsSection {
+  background: var(--spice-main) !important;
+  color: var(--spice-text) !important;
+}
+
+/* Make home and marketplace buttons transparent */
+.main-globalNav-link-icon[aria-label="Marketplace"],
+.main-globalNav-link-icon[aria-label="Inicio"],
+.main-userWidget-box {
+  background: transparent !important;
+}
+
+.main-contextMenu-menu,
+.main-embedWidgetGenerator-container {
+  background: var(--spice-main) !important;
+  color: var(--spice-text) !important;
+}
+
+/*Next song on top in now playing*/
+.main-nowPlayingView-section:not(.main-nowPlayingView-queue) {
+  order: 99 !important;
+}
+/*Hide mini player button */
+button:has(
+    path[d="M16 2.45c0-.8-.65-1.45-1.45-1.45H1.45C.65 1 0 1.65 0 2.45v11.1C0 14.35.65 15 1.45 15h5.557v-1.5H1.5v-11h13V7H16V2.45z"]
+  ) {
+  display: none !important;
+}
+
+/* Remove top gradient */
+.main-entityHeader-backgroundColor,
+.main-actionBarBackground-background,
+.main-home-homeHeader {
+  display: none !important;
+}
+/* Hide lyrics button */
+.main-nowPlayingBar-lyricsButton {
+  display: none !important;
+}
+
+/* Hide fullscreen button */
+button:has(
+    path[d="M6.53 9.47a.75.75 0 0 1 0 1.06l-2.72 2.72h1.018a.75.75 0 0 1 0 1.5H1.25v-3.579a.75.75 0 0 1 1.5 0v1.018l2.72-2.72a.75.75 0 0 1 1.06 0zm2.94-2.94a.75.75 0 0 1 0-1.06l2.72-2.72h-1.018a.75.75 0 1 1 0-1.5h3.578v3.579a.75.75 0 0 1-1.5 0V3.81l-2.72 2.72a.75.75 0 0 1-1.06 0z"]
+  ) {
+  display: none !important;
+}
+
+/* Modern scrollbar */
+
+.os-scrollbar-handle {
+  width: 0.25rem !important;
+  border-radius: 10rem !important;
+  transition: width 300ms ease-in-out;
+}
+.os-scrollbar-handle:focus,
+.os-scrollbar-handle:focus-within,
+.os-scrollbar-handle:hover {
+  width: 0.35rem !important;
+}
+
+/* Clean now playing bar */
+
+.main-nowPlayingView-section,
+.Loading,
+.LoadingLyricsCard,
+.f6_Fu_ei4TIJWR0wzvTk {
+  display: none;
+}
+.nw2W4ZMdICuBo08Tzxg9 {
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Hide made for you section */
+section[aria-label^="Hecho para"] {
+  display: none !important;
+}
+
+/* Hide popular sections */
+[data-testid="home-page"]
+  .contentSpacing
+  > [data-testid="component-shelf"]:has(
+    [href="/section/0JQ5DAuChZYPe9iDhh2mJz"],
+    [href="/section/0JQ5DAnM3wGh0gz1MXnu4h"],
+    [href="/section/0JQ5DAnM3wGh0gz1MXnu3B"],
+    [href="/section/0JQ5DAnM3wGh0gz1MXnu3D"]
+  ) {
+  display: none !important;
+}
+
+/* Root container follow background color */
+.Root__top-container {
+  background: var(--spice-main) !important;
+}
+
+.Root__top-container:has([class*="yourLibraryX"]) {
+  padding-top: 0 !important;
+}
+
+/* Play/pause button */
+.Button-sc-qlcn5g-0 span {
+  background: var(--spice-text) !important;
+  color: var(--spice-main) !important;
+}
+
+/* Remove now playing */
+.Root__right-sidebar:has(.NowPlayingView) {
+  display: none;
+}
+
+/* Track list */
+.main-trackList-trackListRow:hover,
+.main-card-cardContainer:hover,
+.main-trackList-selected {
+  background: rgba(77, 77, 77, 0.1) !important;
+}
+
+.main-trackList-column span {
+  font-weight: bold !important;
+}
+
+/* Playing bar */
+.progress-bar:hover .x-progressBar-fillColor {
+  background: var(--spice-text) !important;
+}
+
+/* Home cards */
+.view-homeShortcutsGrid-shortcut {
+  background: transparent !important;
+  border: 0.5px solid var(--spice-text) !important;
+  border-radius: 10px !important;
+}
+
+/* Animations */
+
+.view-homeShortcutsGrid-shortcut .main-heroCard-card,
+.main-buttonIcon-buttonIcon,
+.main-trackList-column,
+.main-rootlist-rootlistItem,
+.main-card-card,
+.main-entityHeader-smallHeader,
+.main-entityHeader-headerText,
+.main-entityHeader-image {
+  animation-name: up-fade-anim;
+  animation-duration: 1s;
+}
+.main-shelf-seeAll,
+.main-cardImage-image,
+.main-trackList-trackList,
+.main-trackList-number {
+  animation-name: left-fade-anim;
+  animation-duration: 1s;
+}
+.main-shelf-title {
+  animation-name: right-fade-anim;
+  animation-duration: 1s;
+}
+
+@keyframes up-fade-anim {
+  from {
+    opacity: 0%;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 100;
+    transform: translateY(0px);
+  }
+}
+@keyframes left-fade-anim {
+  from {
+    opacity: 0%;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 100;
+    transform: translateX(0px);
+  }
+}
+@keyframes right-fade-anim {
+  from {
+    opacity: 0%;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 100;
+    transform: translateX(0px);
+  }
+}
+
+.main-yourLibraryX-libraryContainer {
+  animation: left-fade-anim;
+  animation-duration: 1s;
 }
