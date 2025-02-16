@@ -23,9 +23,7 @@ esac
 BREW=(
   update_freq=100
   icon="$BREW_ICON"
-  icon.font="$ICON_FONT:Regular:20:0"
   icon.color="$COLOR"
-  background.color="$BG_SEC_COLR"
   label="$COUNT"
 )
 

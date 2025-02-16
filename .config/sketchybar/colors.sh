@@ -13,7 +13,9 @@ export TEAL=0xFF94e2d5      #94e2d5
 export SKY=0xFF89dceb       #89dceb
 export SAPPHIRE=0xFF74c7ec  #74c7ec
 export BLUE=0xFF89b4fa      #89b4fa
-export LAVENDER=0xFFb4befe  #b4befe
+# export LAVENDER=0xFFb4befe  #b4befe
+
+export LAVENDER=0xFFB5E3F5 #B5E3F5
 
 export WHITE=0xFFcdd6f4      #cdd6f4
 export DARK_WHITE=0xFF9399b2 #9399b2

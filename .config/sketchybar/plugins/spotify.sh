@@ -4,7 +4,7 @@ if application "Spotify" is running then
         if player state is playing then
             return (get name of current track)
         else
-            return "En pausa"
+            return "En Pausa"
         end if
     end tell
 end if

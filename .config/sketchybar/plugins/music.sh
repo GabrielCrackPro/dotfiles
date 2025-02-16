@@ -1,18 +1,17 @@
-# sleep 0.5
+#!/bin/bash
 
-PLAYING=$(~/.config/sketchybar/plugins/spotify.sh)
+source "$HOME/.config/sketchybar/icons.sh"
 
-if [[ ${#PLAYING} -gt 20 ]]; then
-  PLAYING="${PLAYING:0:17}..."
-fi
+PLAYING=$("$HOME/.config/sketchybar/plugins/spotify.sh")
 
-if [[ $PLAYING != "None" ]]; then
-  if [[ $PLAYING == "En Pausa" ]]; then
-    sketchybar --set $NAME label.drawing=on icon.drawing=on
-  else
-    sketchybar --set $NAME label.drawing=on icon.drawing=on
-    sketchybar --set $NAME label="$PLAYING"
-  fi
+# Trim text if it's too long
+[[ ${#PLAYING} -gt 20 ]] && PLAYING="${PLAYING:0:17}..."
+
+if [[ "$PLAYING" == "None" ]]; then
+  sketchybar --set "$NAME" label.drawing=off icon.drawing=off
 else
-  sketchybar --set $NAME label.drawing=off icon.drawing=off
+  ICON="$SPOTIFY_ICON"
+  [[ "$PLAYING" == "En Pausa" ]] && ICON="$PAUSE_ICON"
+
+  sketchybar --set "$NAME" label.drawing=on icon.drawing=on icon="$ICON" label="$PLAYING"
 fi

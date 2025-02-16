@@ -2,7 +2,6 @@
 
 SOUND=(
   icon.color=$SKY
-  background.color=$BG_SEC_COLR
   script="$PLUGIN_DIR/sound.sh"
 )
 

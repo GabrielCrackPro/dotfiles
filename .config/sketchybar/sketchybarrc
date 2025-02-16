@@ -1,73 +1,70 @@
 #!/bin/bash
 
-DIR="$HOME/.config/sketchybar/"
-ITEM_DIR="$DIR/items"
-PLUGIN_DIR="$DIR/plugins"
+# Directories
+CONFIG_DIR="$HOME/.config/sketchybar"
+ITEM_DIR="$CONFIG_DIR/items"
+PLUGIN_DIR="$CONFIG_DIR/plugins"
 
+# Fonts
 ICON_FONT="JetBrainsMono Nerd Font"
 FONT="JetBrainsMono Nerd Font"
 
-PADDING=6
+# Source Required Files
+source "$CONFIG_DIR/settings.sh"
+source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/icons.sh"
 
-SPOTIFY_CHANGE_EVENT="com.spotify.client.PlaybackStateChanged"
-
-MAIN_DISPLAY=
-
-source "$DIR/colors.sh"
-source "$DIR/icons.sh"
-
+# Bar Properties
 BAR_PROPS=(
-  height=32
+  height="$BAR_HEIGHT"
+  shadow="$BAR_SHADOW"
+  position="$BAR_POSITION"
+  sticky="$BAR_STICKY"
+  padding_right="$BAR_PADDING_RIGHT"
+  padding_left="$BAR_PADDING_LEFT"
+  corner_radius="$BAR_RADIUS"
+  y_offset="$BAR_Y_OFFSET"
+  margin="$BAR_MARGIN"
+  blur_radius="$BAR_BLUR_RADIUS"
+  notch_width="$BAR_NOTCH_WIDTH"
+  background.color="$TRANSPARENT"
   color="$TRANSPARENT"
-  shadow=off
-  position=top
-  sticky=on
-  padding_right=15
-  padding_left=15
-  corner_radius=10
-  y_offset=6
-  margin=6
-  blur_radius=50
-  notch_width=0
-  background.color=$TRANSPARENT
 )
 
+# Default Properties for Items
 DEF_PROPS=(
   updates=when_shown
   icon.font="$ICON_FONT:Regular:16.0"
-  icon.color=$WHITE
-  icon.padding_left=10
-  icon.padding_right=2
-  label.font="$FONT:Bold:14.0"
-  label.color=$WHITE
-  label.padding_left=$PADDING
-  label.padding_right=10
-  background.color=$BG_PRI_COLOR
-  background.padding_right=$PADDING
-  background.padding_left=$PADDING
-  background.height=22
-  background.corner_radius=8
+  icon.color="$WHITE"
+  icon.padding_left="$ICON_PADDING_LEFT"
+  icon.padding_right="$ICON_PADDING_RIGHT"
+  label.font="$FONT:Regular:13.0"
+  label.color="$WHITE"
+  label.padding_left="$PADDING"
+  label.padding_right="$LABEL_PADDING_RIGHT"
+  background.color="$TRANSPARENT"
+  background.padding_right="$PADDING"
+  background.padding_left="$PADDING"
+  background.height="$BACKGROUND_HEIGHT"
+  background.corner_radius="$BACKGROUND_RADIUS"
+  background.border_width="$BACKGROUND_BORDER_WIDTH"
+  background.border_color="$LAVENDER"
 )
 
+# Configure SketchyBar
 sketchybar --bar "${BAR_PROPS[@]}"
 sketchybar --default "${DEF_PROPS[@]}"
 sketchybar --add event spotify_change $SPOTIFY_CHANGE_EVENT
 
-# -- LEFT Side Items --
-source "$ITEM_DIR/apple.sh"
-source "$ITEM_DIR/spaces.sh"
-source "$ITEM_DIR/front_app.sh"
+# Load Left Side Items
+for item in apple spaces front_app; do
+  source "$ITEM_DIR/$item.sh"
+done
 
-# -- RIGHT Side Items --
+# Load Right Side Items
+for item in time uptime battery sound wifi music; do
+  source "$ITEM_DIR/$item.sh"
+done
 
-source "$ITEM_DIR/time.sh"
-source "$ITEM_DIR/uptime.sh"
-source "$ITEM_DIR/battery.sh"
-# source "$ITEM_DIR/brew.sh"
-source "$ITEM_DIR/sound.sh"
-source "$ITEM_DIR/wifi.sh"
-# source "$ITEM_DIR/cpu.sh"
-# source "$ITEM_DIR/weather.sh"
-source "$ITEM_DIR/music.sh"
-
+# Update SketchyBar
 sketchybar --update

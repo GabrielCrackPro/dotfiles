@@ -5,7 +5,6 @@ WEATHER=(
   icon.drawing=on
   icon="$WEATHER_ICON"
   icon.color="$PEACH"
-  background.color="$BG_SEC_COLR"
   script="$PLUGIN_DIR/weather.sh"
 )
 

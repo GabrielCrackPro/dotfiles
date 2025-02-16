@@ -19,6 +19,7 @@ export BATTERY_25_ICON=􀛩
 export BATTERY_0_ICON=􀛪
 
 export CLOCK_ICON=􀐬
+export CALENDAR_ICON=
 
 export SPOTIFY_ICON=
 export PAUSE_ICON=
