@@ -1,0 +1,127 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/logos/aqua.txt",
+    "type": "file"
+  },
+  "display": {
+    "separator": " ",
+    "hideCursor": true,
+    "bar": {
+      "borderLeft": "[ ",
+      "borderRight": " ]",
+      "charElapsed": "■",
+      "charTotal": "■",
+      "width": 10
+    },
+    "size": {
+      "maxPrefix": "GB"
+    },
+    "freq": {
+      "ndigits": 2
+    },
+    "key": {
+      "type": "icon"
+    },
+    "percent": {
+      "ndigits": 0,
+      "type": 1,
+      "color": {
+        "green": "1;38;2;137;220;235",
+        "yellow": "1;38;2;249;226;175",
+        "red": "1;38;2;243;139;168"
+      }
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "{1}",
+      "key": "user",
+      "keyIcon": " ",
+      "keyColor": "1;38;2;203;166;247",
+      "outputColor": "1;38;2;203;166;247"
+    },
+    "break",
+    {
+      "type": "os",
+      "format": "{2} {10} {9}",
+      "key": "OS   ",
+      "keyColor": "1;38;2;137;220;235",
+      "outputColor": "1;38;2;137;220;235"
+    },
+    {
+      "type": "kernel",
+      "format": "{1} {4} {2}",
+      "key": " ├  ",
+      "keyColor": "1;38;2;137;220;235",
+      "outputColor": "1;38;2;137;220;235"
+    },
+    {
+      "type": "packages",
+      "format": "{1} (brew)",
+      "key": " ├ 󰏖 ",
+      "keyColor": "1;38;2;137;220;235",
+      "outputColor": "1;38;2;137;220;235"
+    },
+    {
+      "type": "shell",
+      "format": "{6} {4}",
+      "key": " ├  ",
+      "keyColor": "1;38;2;137;220;235",
+      "outputColor": "1;38;2;137;220;235"
+    },
+    {
+      "type": "uptime",
+      "format": "{2}:{3}",
+      "key": " ├ 󱑀 ",
+      "keyColor": "1;38;2;137;220;235",
+      "outputColor": "1;38;2;137;220;235"
+    },
+    "break",
+    {
+      "type": "wm",
+      "format": "{2} - {5}",
+      "key": "WM   ",
+      "keyColor": "1;38;2;137;180;250",
+      "outputColor": "1;38;2;137;180;250"
+    },
+    {
+      "type": "terminal",
+      "format": "{5}",
+      "key": " ├  ",
+      "keyColor": "1;38;2;137;180;250",
+      "outputColor": "1;38;2;137;180;250"
+    },
+    "break",
+    {
+      "type": "host",
+      "format": "{2}",
+      "key": "PC   ",
+      "keyColor": "1;38;2;250;179;135",
+      "outputColor": "1;38;2;250;179;135"
+    },
+    {
+      "type": "cpu",
+      "key": " ├ 󰻠 ",
+      "format": "{1} @ {7}",
+      "keyColor": "1;38;2;250;179;135",
+      "outputColor": "1;38;2;250;179;135"
+    },
+    {
+      "type": "battery",
+      "key": " └  ",
+      "format": "{10}{4}",
+      "keyColor": "1;38;2;250;179;135",
+      "outputColor": "1;38;2;250;179;135"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "block": {
+        "width": 2
+      }
+    }
+  ]
+}
